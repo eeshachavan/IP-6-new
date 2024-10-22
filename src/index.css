@@ -1,13 +1,258 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  text-align: center;
 }
+
+.section {
+  min-height: 100vh; /* Each section takes up the whole screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.welcome {
+  background-image: url('https://wallpaperaccess.com/full/5651990.jpg'); /* Set the background image */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
+  position: relative; /* Set position for overlay */
+}
+
+.welcome-overlay {
+  position: absolute; /* Position overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent layer */
+  z-index: 1; /* Ensure overlay is above the background image */
+}
+
+.welcome-animation {
+  opacity: 0; /* Start invisible */
+  transform: translateX(100%); /* Start off the right side */
+  animation: slide-in 1s forwards; /* Trigger animation */
+  font-size: 4rem; /* Larger font size for "Eesha Chavan" */
+  z-index: 2; /* Ensure text is above the overlay */
+  position: relative; /* Relative to the overlay */
+}
+
+.welcome-text {
+  margin-left: 20px; /* Shift text slightly to the right */
+  z-index: 2; /* Ensure text is above the overlay */
+  position: relative; /* Relative to the overlay */
+}
+
+/* Typing animation styles */
+.typing-animation {
+  font-size: 1.5rem;
+  color: white;
+  border-right: 2px solid white; /* Cursor effect */
+  white-space: nowrap; /* Keeps the text on one line */
+  width: auto; /* Set width to auto */
+  animation: typing 3s steps(10, end) forwards, blink 0.75s step-end infinite; /* Added 'forwards' to keep the final state */
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: auto; } /* Change to auto to keep the text visible */
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+
+h1, h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p, li {
+  font-size: 1.2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+/* src/App.css */
+
+/* General styles */
+
+.about-box {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin: 20px;
+  border: 2px solid black; /* Border for the box */
+  border-radius: 8px; /* Optional: for rounded corners */
+  max-width: 800px; /* Optional: limit the box width */
+  margin: 0 auto; /* Center the box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.about-box h2 {
+  margin-bottom: 15px;
+}
+
+.about-box p {
+  font-size: 1.1rem;
+}
+
+/* src/App.css */
+
+/* Existing styles... */
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow boxes to wrap onto the next line */
+  justify-content: center; /* Center the boxes */
+  margin-top: 20px; /* Space above the boxes */
+  gap: 30px;
+}
+
+.skill-box {
+  background-color: white; /* Background color for the boxes */
+  color: black; /* Text color */
+  padding: 20px; /* Padding inside the boxes */
+  border: 2px solid black; /* Border for the boxes */
+  border-radius: 8px; /* Optional: for rounded corners */
+  width: 150px; /* Set a fixed width for the boxes */
+  text-align: center; /* Center the text inside the box */
+  transition: transform 0.3s; /* Animation for hover effect */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent glass effect */
+  color: white; /* White text for readability */
+  margin: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Shiny, transparent border */
+  border-radius: 12px; /* Rounded corners */
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Slight shadow for depth */
+  backdrop-filter: blur(20px); /* Increase blur effect */
+  -webkit-backdrop-filter: blur(20px); /* For Safari compatibility */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Optional: Add a hover effect */
+.skill-box:hover {
+  transform: scale(1.05); /* Slightly enlarge the box on hover */
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.8); /* Stronger glow on hover */
+  border-color: rgba(255, 255, 255, 1); /* More pronounced outline on hover */
+}
+
+.about-box {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent glass effect */
+  color: white; /* White text for readability */
+  padding: 120px 50px;
+  margin: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Shiny, transparent border */
+  border-radius: 12px; /* Rounded corners */
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Slight shadow for depth */
+  backdrop-filter: blur(20px); /* Increase blur effect */
+  -webkit-backdrop-filter: blur(20px); /* For Safari compatibility */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+.about-box:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.8); /* Stronger glow on hover */
+  border-color: rgba(255, 255, 255, 1); /* More pronounced outline on hover */
+}
+
+.about-box h2 {
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.9); /* Slightly less transparent for headings */
+}
+
+.about-box p {
+  font-size: 1.2rem;
+}
+
+/* Contact Section Styles */
+.section.contact {
+  width: 600px; /* Fixed width for the form */
+  margin: 100px auto; /* Adds vertical spacing from the top and bottom */
+  padding: 10px; /* Adequate padding inside the form */
+  background-color: transparent;
+  border: 2px solid white; /* White outline */
+  border-radius: 5px; /* Slightly rounded corners */
+  box-sizing: border-box; /* Ensures padding is included in the total width/height */
+}
+
+
+.section.contact h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: white;
+}
+
+.section.contact form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 15px; /* Space between form elements */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  color: white; /* Label text color */
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid white; /* White outline for inputs */
+  background-color: transparent;
+  color: white; /* Text color */
+  font-size: 1rem;
+  outline: none;
+  border-radius: 5px; /* Slightly rounded input corners */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff; /* Change border color on focus */
+}
+
+button[type="submit"] {
+  padding: 12px 20px;
+  background-color: white;
+  color: #007bff;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px; /* Rounded button corners */
+}
+
+button[type="submit"]:hover {
+  background-color: #007bff;
+  color: white;
+}
+
